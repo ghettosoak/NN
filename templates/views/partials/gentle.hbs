@@ -1,0 +1,38 @@
+<div id="gentle">
+	<div class="markers">
+		{{#each data.pages}}
+			<span></span>
+		{{/each}}
+	</div>
+	<div class="pages">
+	{{#each data.pages}}
+		{{#if frontPage.desktop.secure_url}}
+		<div class="page"
+			data-url-desktop="{{{frontPage.desktop.secure_url}}}"
+			data-url-mobile="{{{frontPage.mobile.secure_url}}}"
+		>
+			<div class="page_loader">
+				<div class="page_loader_interior">
+					<div class="sk-folding-cube">
+						<div class="sk-cube1 sk-cube"></div>
+						<div class="sk-cube2 sk-cube"></div>
+						<div class="sk-cube4 sk-cube"></div>
+						<div class="sk-cube3 sk-cube"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="page_image"></div>
+
+			<div class="goto" data-goto="{{slug}}">
+				<p>SEE PROJECT</p>
+				<p>{{{title}}}</p>
+				<p>IN ACTION</p>
+			</div>
+
+			{{!-- <div class="page_curtain"></div> --}}
+		</div>
+		{{/if}}
+	{{/each}}
+	</div>
+</div>

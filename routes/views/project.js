@@ -17,8 +17,8 @@ exports = module.exports = function (req, res) {
 	// Load the current project
 	view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.findOne({
-			state: 'published',
+		var q = keystone.list('Project').model.findOne({
+			// state: 'published',
 			slug: locals.filters.project,
 		}).populate('author categories');
 
@@ -29,17 +29,17 @@ exports = module.exports = function (req, res) {
 
 	});
 
-	// Load other projects
-	view.on('init', function (next) {
+	// // Load other projects
+	// view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
+	// 	var q = keystone.list('Project').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
 
-		q.exec(function (err, results) {
-			locals.data.projects = results;
-			next(err);
-		});
+	// 	q.exec(function (err, results) {
+	// 		locals.data.projects = results;
+	// 		next(err);
+	// 	});
 
-	});
+	// });
 
 	// Render the view
 	view.render('project');

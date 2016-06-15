@@ -1,0 +1,185 @@
+#navigation{
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+	width: @navigation_width;
+	height: 100%;
+
+	.nav_head{
+		position: fixed;
+		width: 100%;
+		height: @touchable;
+		left: 0;
+		top: 0;
+		background-color: @color-dark;
+		transition: all .4s ease;
+
+		@media @full {
+			width: @touchable * 3;
+
+			.navigation_open &{
+				width: @navigation_width;
+			}
+		}
+
+		.nav_menu_button,
+		.nav_logo,
+		.nav_contact{
+			position: absolute;
+			width: @touchable;
+			height: @touchable;
+			top: 0;
+
+			&:before{
+				content: '';
+				position: absolute;
+				height: @iconable;
+				width: @iconable;
+				top: 50%;
+				left: 50%;
+				z-index: 1;
+				margin: (-@iconable / 2) 0 0 (-@iconable / 2);
+			}
+		}
+
+		.nav_menu_button{
+			left: 0;
+			transition: all .25s ease;
+
+			.navigation_open &{
+				transform: rotate(90deg);
+			}
+
+			&:before{
+				.icon(1, 1, @iconable);
+			}
+		}
+
+		.nav_logo{
+			right: @touchable;
+			&:before{
+				.icon(1, 0, @iconable);
+			}
+		}
+
+		.nav_contact{
+			background-color: white;
+			right: 0;
+			&:before{
+				.icon(0, 2, @iconable);
+			}
+ 		}
+	}
+
+	.who{
+		position: relative;
+		float: left;
+		margin-top: @touchable;
+		width: 100%;
+		background-color: @color-dark;
+		transition: all .2s ease;
+
+		.navigation_open &{
+
+			.flasher{
+				.flash();
+			}
+
+			.content{
+				visibility: visible;
+				opacity: 1;
+				transition-delay: .2s;
+			}
+		}
+
+		.content{
+			p{
+				margin: 0;
+			}
+
+			.who_title{
+				font-size: 16px;
+				font-family: yantramanavmedium;
+			}
+			.who_subtitle{
+				font-size: 12px;
+				line-height: 8px;
+				font-family: yantramanavmedium;
+				margin-bottom: @margin;
+			}
+			.who_subline{
+				font-size: 12px;
+				line-height: 12px;
+			}
+		}
+	}
+
+	.categories{
+		position: relative;
+		float: left;
+		width: 100%;
+		background-color: @color-dark;
+		padding: @margin;
+		display: none;
+
+		.navigation_open &{
+			display: block;
+			.flash();
+		}
+
+		.projects{
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+}
+
+.flasher{
+	.fillblock;
+	z-index: -0;
+
+	i{
+		.fillblock;
+		visibility: hidden;
+		transition: visibility 0s linear;
+	}
+
+	.f1{ z-index: 1; background-color: white; }
+	.f2{ z-index: 2; background-color: black; }
+	.f3{ z-index: 3; background-color: white; }
+}
+
+.content{
+	position: relative;
+	padding: @margin;
+	z-index: 1;
+	background-color: @color-dark;
+	visibility: hidden;
+	opacity: 0;
+	transition: all .25s linear;
+}
+
+.flash(){
+	i{ visibility: visible; }
+
+	.f1{ transition-delay: .05s; }
+	.f2{ transition-delay: .1s; }
+	.f3{ transition-delay: .15s; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

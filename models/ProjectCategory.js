@@ -11,6 +11,7 @@ var ProjectCategory = new keystone.List('ProjectCategory', {
 
 ProjectCategory.add({
 	name: { type: String, required: true },
+	dates: { type: String }
 });
 
 ProjectCategory.relationship({ ref: 'Project', path: 'categories' });

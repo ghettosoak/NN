@@ -1,0 +1,12 @@
+.icon(@x, @y, @size){
+	background-image: url(../img/svg/icons-01.svg);
+	background-position: -(@y * @size) -(@x * @size);
+	background-size: (@iconable * @spritesheetWidth);
+	background-repeat: no-repeat;
+	overflow: hidden; 
+
+	.pressing &,
+	.pressing&,{
+		background-position: -((@x * @size) + (3 * @size)) -(@y * @size) !important; 
+	}
+}

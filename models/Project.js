@@ -25,20 +25,29 @@ var Project = new keystone.List('Project', {
 // });
 
 Project.add({
-	headline: { type: String, required: true, initial: false },
+	title: { type: String, required: true },
 	subheadline : { type: Types.Html, wysiwyg: true, height: 150 },
 	category: { type: Types.Relationship, ref: 'ProjectCategory', many: true },
 	date: { type: String },
-	mainEvent: { type: Types.CloudinaryImage },
+	navigationThumbnails: { type: Types.CloudinaryImages },
+	frontPage:{
+		desktop: { type: Types.CloudinaryImage },
+		mobile: { type: Types.CloudinaryImage }
+	},
+	mainEvent:{
+		desktop: { type: Types.CloudinaryImage },
+		mobile: { type: Types.CloudinaryImage },
+		vimeo_id: { type: String },
+	},
 	content: {
 		subsection01_title: { type: String },
-		subsection01_title : { type: Types.Html, wysiwyg: true, height: 150 },
+		subsection01_subtitle : { type: Types.Html, wysiwyg: true, height: 150 },
 		subsection01_imageRow01: { type: Types.CloudinaryImages },
 		subsection01_imageRow02: { type: Types.CloudinaryImages },
 		subsection01_imageRow03: { type: Types.CloudinaryImages },
 		subsection01_imageRow04: { type: Types.CloudinaryImages },
 		subsection02_title: { type: String },
-		subsection02_title : { type: Types.Html, wysiwyg: true, height: 150 },
+		subsection02_subtitle : { type: Types.Html, wysiwyg: true, height: 150 },
 		subsection02_link: { type: Types.Url },
 		subsection02_imageRow: { type: Types.CloudinaryImages },
 	},

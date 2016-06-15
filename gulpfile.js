@@ -13,7 +13,8 @@ var paths = {
 gulp.task('runKeystone', shell.task('node keystone.js'));
 gulp.task('watch', [
 
-  'watch:lint'
+  // 'watch:lint',
+  
 ]);
 
 gulp.task('default', ['watch', 'runKeystone']);

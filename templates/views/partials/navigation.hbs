@@ -1,0 +1,47 @@
+<div id="navigation">
+	<div class="nav_head">
+		<div class="nav_menu_button"></div>
+		<div class="nav_logo"></div>
+		<div class="nav_contact"></div>
+	</div>
+
+	<div class="who">
+		<div class="flasher"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div>
+		<div class="content">			
+			<p class="who_title">Nihad Nasupovic</h1>
+			<p class="who_subtitle">digital visual artist & animator</h2>
+			<p class="who_subline">my skillset stretches from analog to the digital:<br /> concept art & illustration, 3d-modeling, <br />environment, visuals, animation & realtime</p>
+		</div>
+	</div>
+
+	<div class="categories">		
+		{{#each data.projects}}
+		<div class="category category-{{{@index}}}">
+			<div class="category_button">
+				<p>
+					<b>{{{categoryMeta.name}}}</b> <br />
+					{{{categoryMeta.dates}}}
+				</p>
+				<div class="category_arrow"></div>
+			</div>
+
+			<div class="projects">
+				{{#each projects}}
+				<div 
+					class="project project-link" 
+					data-link="#work/{{slug}}">
+	
+					<div class="project_thumbnails">
+						
+					</div>
+
+					<p class="title">{{{title}}}</p>
+				</div>
+				{{/each}}
+			</div>
+
+
+		</div>
+		{{/each}}
+	</div>
+</div>

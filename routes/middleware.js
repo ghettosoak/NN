@@ -8,6 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('underscore');
+var keystone = require('keystone');
 
 
 /**
@@ -18,13 +19,22 @@ var _ = require('underscore');
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
-	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
-	];
-	res.locals.user = req.user;
+
+
+	// res.locals.navLinks = [
+	// 	{ label: 'Home', key: 'home', href: '/' },
+	// 	{ label: 'Blog', key: 'blog', href: '/blog' },
+	// 	// { label: 'Gallery', key: 'gallery', href: '/gallery' },
+	// 	// { label: 'Contact', key: 'contact', href: '/contact' },
+	// ];
+
+	// res.locals.user = req.user;
+	
+	// var view = new keystone.View(req, res);
+
+	// view.query('galleries', keystone.list('Gallery').model.find().sort('sortOrder'));
+
+	// console.log(view.render('gallery'));
 	next();
 };
 

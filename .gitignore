@@ -29,3 +29,5 @@ node_modules
 
 # Ignore .DS_Store files on OS X
 .DS_Store
+_scratch/NN_DISCOVER.svg
+_scratch/NN_ICONS_v1.ai
