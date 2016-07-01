@@ -27,6 +27,7 @@ var Project = new keystone.List('Project', {
 Project.add({
 	title: { type: String, required: true },
 	subheadline : { type: Types.Html, wysiwyg: true, height: 150 },
+	role : { type: String },
 	category: { type: Types.Relationship, ref: 'ProjectCategory', many: true },
 	date: { type: String },
 	navigationThumbnails: { type: Types.CloudinaryImages },
@@ -57,5 +58,5 @@ Project.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-Project.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+Project.defaultColumns = 'title, category|20%, date|20%';
 Project.register();

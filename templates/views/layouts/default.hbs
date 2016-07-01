@@ -9,14 +9,38 @@
 		<link href="/css/main.css" rel="stylesheet">
 		{{{isAdminEditorCSS user}}}
 	</head>
-	<body id="body" class="navigation_open">
-		<div id="header">
-			HEADER
-		</div>
+	<body id="body" class="" viewing-category="">
 		{{{body}}}
-		<div id="project"></div>
+		<div id="lander">
+			<div id="lander_interior">
+				<div id="lander_nav">
+					<div class="prev">
+						<div class="lander_nav_interior">
+							<span class="direction">prev</span>
+							<span class="project_title_lander"></span>
+						</div>
+					</div>
+					<div class="next">
+						<div class="lander_nav_interior">
+							<span class="direction">next</span>
+							<span class="project_title_lander"></span>
+						</div>
+					</div>
+				</div>
+				<div id="lander_target"></div>
+			</div>
+		</div>
 		<div id="loader">
-			<h1>LOADING NIGGA</h1>
+			<div class="loader_exterior">
+				<div class="loader_interior">
+					<div id="code">
+						<div id="code_interior"></div>
+					</div>
+					<div class="loader_icon eternal">
+						<div class="loader_icon_interior"><span></span></div>
+					</div>
+				</div>
+			</div>
 		</div>
 		{{{isAdminEditorJS user}}}
 		<script type="text/javascript" src="js/main.js"></script>

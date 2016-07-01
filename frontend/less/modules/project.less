@@ -1,0 +1,151 @@
+.extract_project{
+	position: relative;
+	float: right;
+	width: 100%;
+	overflow: hidden;
+	padding: 0 16px;
+
+	.present &{
+		transition: all .4s ease;
+	}
+
+	@media @full_min {
+		padding: 0 @touchable;
+		max-width: ~'calc(100% - 144px)';
+	}
+
+	.navigation_open &{
+		max-width: ~'calc(100% - @{navigation_width})';
+	}
+
+	.section{
+		position: relative;
+		float: left;
+		width: 100%;
+		overflow: hidden;
+		margin-bottom: 16px;
+
+		.interior{
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+			max-width: 1000px;
+		}
+	}
+
+	.title .interior{
+		max-width: 500px !important;
+
+		h1{
+			font-size: 48px;
+			font-weight: @bold;
+			text-align: center;
+			margin: 45px 0;
+			line-height: 60px;
+
+			span{
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 10px;
+				line-height: 10px;
+			}
+		}
+
+		h2{
+			font-size: 24px;
+			font-weight: @standard;
+			text-align: center;	
+		}
+
+		h3{
+			font-size: 14px;
+			font-weight: @standard;
+			text-align: center;	
+			text-transform: uppercase;
+		}
+	}
+
+	.images{
+		margin: 0 -8px 16px -8px;
+	}
+
+	.images .interior{
+		overflow: hidden;
+
+		img{
+			height: auto;
+			position: relative;
+			float: left;
+			padding: 0 8px 8px;
+
+			.present &{
+				transition: all .4s ease;
+			}
+		}
+
+		&[count="1"]{
+			img{
+				width: 100%;
+			}
+		}
+
+		&[count="2"]{
+			img{
+				width: 100%;
+				@media @full_min {
+					width: 50%;
+				}
+			}
+		}
+
+		&[count="3"],
+		&[count="6"]{
+			img{
+				width: 100%;
+
+				@media @full_min {
+					width: 100 / 3%;
+				}
+			}
+		}
+
+		&[count="4"]{
+			img{
+				width: 50%;
+
+				@media @full_min {
+					width: 25%;
+				}
+			}
+		}
+
+		&[count="5"]{
+			img{
+				width: 50%;
+
+				@media @full_min {
+					width: 20%;
+				}
+			}
+		}
+
+		&[count="7"],
+		&[count="8"]{
+			img{
+				width: 50%;
+
+				@media @full_min {
+					width: 25%;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

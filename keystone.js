@@ -93,8 +93,19 @@ keystone.Email.defaults.templateEngine = require('handlebars');
 keystone.set('nav', {
 	// gentle: 'gentle',
 	projects: ['projects', 'project-categories'],
-	enquiries: 'enquiries',
-	users: 'users',
+	// hello: {
+	// 	label: "hello",
+	// 	// key: "hello",
+	// 	// path: "/api/hello"
+	// },
+	// hello: 'hello',
+	// hello: {
+ //      label: "reports",
+ //      key: "reports",
+ //      path: "/api/reports"
+ //    },
+	// enquiries: 'enquiries',
+	// users: 'users',
 });
 
 // Start Keystone to connect to your database and initialise the web server

@@ -144,14 +144,10 @@ $(function() {
 			var innerWidth = $window.innerWidth(),
 				innerHeight = $window.innerHeight();
 
-			if ( innerWidth < 768 ) 
+			if ( innerWidth < 640 ) 
 				mediaCurrent = 'mobile'
-			else if ( ( innerWidth >= 768) && ( innerWidth < 992 ) ) 
-				mediaCurrent = 'tablet'
-			else if ( ( innerWidth >= 992 ) && ( innerWidth < 1200 ) ) 
-				mediaCurrent = 'desktop'
-			else if ( innerWidth >= 1200 ) 
-				mediaCurrent = 'large_desktop'
+			else if (innerWidth >= 640)
+				mediaCurrent = 'full'
 
 			if ( innerHeight < 740 )
 				mediaCurrent += ' short'
@@ -200,8 +196,9 @@ $(function() {
 		};
 	})(); 
 
-	imageLoaderCache = [];
-	imageLoaderBusy = false;
+	var imageLoaderCache = [],
+		imageLoaderCallback,
+		imageLoaderBusy = false;
 
 	exports.imageLoader = function(src, callback){
 

@@ -1,12 +1,74 @@
 .icon(@x, @y, @size){
-	background-image: url(../img/svg/icons-01.svg);
+	background-image: url(../img/png/icons-02.png);
 	background-position: -(@y * @size) -(@x * @size);
-	background-size: (@iconable * @spritesheetWidth);
+	background-size: 48px 112px;
 	background-repeat: no-repeat;
 	overflow: hidden; 
 
 	.pressing &,
 	.pressing&,{
-		background-position: -((@x * @size) + (3 * @size)) -(@y * @size) !important; 
+		background-position: -((@x * @size) + (3 * @size)) -(@y * @size); 
 	}
 }
+
+.animator(@x, @target){
+
+	&:hover,
+	&:active,
+	&.eternal{
+		.@{target}:before{
+			content: none;
+		}
+
+		.@{target} span{
+			display: block;
+			animation: animatoring 0.5s infinite step-start;
+		}
+	}
+
+	.@{target} span{
+		display: none;
+		position: absolute;
+		height: 32px;
+		width: 32px;
+		top: 50%;
+		left: 50%;
+		margin: -16px 0 0 -16px;
+
+		background-image: url(../img/png/icon_sprites_2.png);
+		background-size: (5 * 32px) (8 * 32px);
+		background-repeat: no-repeat;
+		background-position-x: -@x * 32px;
+		overflow: hidden;
+	}
+}
+
+@keyframes animatoring {
+	0%{
+		background-position-y: -0px * 32;
+	}
+	12.5%{
+		background-position-y: -1px * 32;
+	}
+	25%{
+		background-position-y: -2px * 32;
+	}
+	37.5%{
+		background-position-y: -3px * 32;
+	}
+	50%{
+		background-position-y: -4px * 32;
+	}
+	62.5%{
+		background-position-y: -5px * 32;
+	}
+	75%{
+		background-position-y: -6px * 32;
+	}
+	87.5%{
+		background-position-y: -7px * 32;
+	}
+}
+
+
+

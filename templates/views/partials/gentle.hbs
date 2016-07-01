@@ -5,34 +5,61 @@
 		{{/each}}
 	</div>
 	<div class="pages">
-	{{#each data.pages}}
+		{{#each data.pages}}
 		{{#if frontPage.desktop.secure_url}}
 		<div class="page"
-			data-url-desktop="{{{frontPage.desktop.secure_url}}}"
-			data-url-mobile="{{{frontPage.mobile.secure_url}}}"
+			link="#work/{{slug}}"
+			url-desktop="{{{frontPage.desktop.secure_url}}}"
+			url-mobile="{{{frontPage.mobile.secure_url}}}"
 		>
 			<div class="page_loader">
-				<div class="page_loader_interior">
-					<div class="sk-folding-cube">
-						<div class="sk-cube1 sk-cube"></div>
-						<div class="sk-cube2 sk-cube"></div>
-						<div class="sk-cube4 sk-cube"></div>
-						<div class="sk-cube3 sk-cube"></div>
+				<div class="page_loader_exterior">
+					<div class="page_loader_interior">
+						<div class="sk-folding-cube">
+							<div class="sk-cube1 sk-cube"></div>
+							<div class="sk-cube2 sk-cube"></div>
+							<div class="sk-cube4 sk-cube"></div>
+							<div class="sk-cube3 sk-cube"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="page_image"></div>
 
-			<div class="goto" data-goto="{{slug}}">
-				<p>SEE PROJECT</p>
-				<p>{{{title}}}</p>
-				<p>IN ACTION</p>
-			</div>
-
-			{{!-- <div class="page_curtain"></div> --}}
 		</div>
 		{{/if}}
-	{{/each}}
+		{{/each}}
+	</div>
+	<div class="goto">
+		<div class="goto_text">
+			<p>g+o-t+o-p+r+o+j+e+c+t</p>
+		</div>
+		<div class="goto_gradient_1">
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+		</div>
+		<div class="goto_gradient_2">
+			<div class="goto_gradient_2_1">
+				<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+			</div>
+			<div class="goto_gradient_2_2">
+				<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+			</div>
+			<div class="goto_gradient_2_3">
+				<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>						
+			</div>
+			<div class="goto_gradient_2_4">
+				<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>						
+			</div>
+		</div>
+		<div class="goto_arrow"><span></span></div>
+
 	</div>
 </div>

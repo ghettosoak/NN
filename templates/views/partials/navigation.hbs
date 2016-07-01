@@ -1,12 +1,16 @@
 <div id="navigation">
 	<div class="nav_head">
 		<div class="nav_menu_button"></div>
-		<div class="nav_logo"></div>
-		<div class="nav_contact"></div>
+		<a href="/#" class="nav_logo">
+			<div class="nav_logo_interior"><span></span></div>
+		</a>
+		<a href="/#hello" class="nav_contact">
+			<div class="nav_contact_interior"><span></span></div>
+		</a>
 	</div>
 
 	<div class="who">
-		<div class="flasher"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div>
+		<div class="flasher"><i></i><i></i><i></i></div>
 		<div class="content">			
 			<p class="who_title">Nihad Nasupovic</h1>
 			<p class="who_subtitle">digital visual artist & animator</h2>
@@ -15,32 +19,63 @@
 	</div>
 
 	<div class="categories">		
+
 		{{#each data.projects}}
-		<div class="category category-{{{@index}}}">
-			<div class="category_button">
-				<p>
-					<b>{{{categoryMeta.name}}}</b> <br />
-					{{{categoryMeta.dates}}}
-				</p>
-				<div class="category_arrow"></div>
-			</div>
 
-			<div class="projects">
-				{{#each projects}}
-				<div 
-					class="project project-link" 
-					data-link="#work/{{slug}}">
-	
-					<div class="project_thumbnails">
-						
-					</div>
+		<div 
+			class="category" 
+			category-index="{{{@index}}}"
+			project-count="{{projects.length}}">
 
-					<p class="title">{{{title}}}</p>
+			<div class="flasher"><i></i><i></i><i></i></div>
+
+			<div class="content">
+				
+				<div class="category_button">
+					<p class="category_name">{{{categoryMeta.name}}}</p>
+					<p class="category_dates">{{{categoryMeta.dates}}}</p>
+					<div class="category_arrow"></div>
 				</div>
-				{{/each}}
+
+				<div class="projects">
+					{{#ifeq @index 3}}
+						<div class="checkers">
+							<i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><i class="c5"></i><i class="c6"></i><i class="c7"></i><i class="c8"></i><i class="c9"></i><i class="c10"></i><i class="c11"></i><i class="c12"></i><i class="c13"></i><i class="c14"></i><i class="c15"></i><i class="c16"></i><i class="c17"></i><i class="c18"></i><i class="c19"></i><i class="c20"></i>
+						</div>
+					{{/ifeq}}
+
+					{{#each projects}}
+					<div 
+						class="project project-link"
+						project-image-index="{{{@index}}}"
+						project-image-showing="0"
+						project-image-count="{{navigationThumbnails.length}}"
+						project-link="#work/{{slug}}">
+
+						<div class="project_tile"></div>
+
+						<div class="flasher">
+							<i><span>{{{title}}}</span></i>
+							<i><span>{{{title}}}</span></i>
+							<i><span>{{{title}}}</span></i>
+						</div>
+
+						<div class="content">
+							<div class="project_thumbnails">
+								{{#each navigationThumbnails}}
+									<div 
+										class="project_thumbnail" 
+										style="background-image: url({{secure_url}});"></div>
+								{{/each}}
+							</div>
+
+							<p class="project_title_nav">{{{title}}}</p>
+						</div>
+		
+					</div>
+					{{/each}}
+				</div>
 			</div>
-
-
 		</div>
 		{{/each}}
 	</div>

@@ -6,7 +6,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'project';
+	locals.section = 'hello';
 	locals.filters = {
 		project: req.params.project,
 	};
@@ -15,19 +15,19 @@ exports = module.exports = function (req, res) {
 	};
 
 	// Load the current project
-	view.on('init', function (next) {
+	// view.on('init', function (next) {
 
-		var q = keystone.list('Project').model.findOne({
-			// state: 'published',
-			slug: locals.filters.project,
-		}).populate('author categories');
+	// 	var q = keystone.list('Hello').model.findOne({
+	// 		// state: 'published',
+	// 		// slug: locals.filters.project,
+	// 	}).populate('');
 
-		q.exec(function (err, result) {
-			locals.data.project = result;
-			next(err);
-		});
+	// 	q.exec(function (err, result) {
+	// 		locals.data.project = result;
+	// 		next(err);
+	// 	});
 
-	});
+	// });
 
 	// // Load other projects
 	// view.on('init', function (next) {
@@ -42,5 +42,5 @@ exports = module.exports = function (req, res) {
 	// });
 
 	// Render the view
-	view.render('project');
+	view.render('hello');
 };

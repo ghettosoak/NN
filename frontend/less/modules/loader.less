@@ -1,0 +1,167 @@
+#loader{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+
+	.loading &{
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.loader_exterior{
+		.fillblock;
+		overflow: hidden;
+		transform: translateY(100%);
+		display: table;
+
+		.present &{
+			transition: all .6s ease;
+		}
+		
+		.loading &{
+			transform: translateY(0);
+		}
+
+		.landed &{
+			transform: translateY(-100%);
+		}
+
+		.loader_interior{
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			vertical-align: middle;
+			transform: translateY(-100%);
+			background-color: @color-dark;
+			display: block;
+
+			@media @full_min{
+				display: table-cell;
+			}
+
+			.present &{
+				transition: all .6s ease;
+			}
+
+			.loading &{
+				transform: translateY(0);
+			}
+
+			.landed &{
+				transform: translateY(100%);
+			}
+
+			#code{
+				font-family: @code;
+				font-size: 10px;
+				line-height: 10px;
+				background-color: white;
+				color: black;
+				position: relative;
+				height: 100%;
+				width: 100%;
+				transition: all .4s ease;
+				margin: 0;
+
+				@media @full_min{
+					width: 30vw;
+					height: 30vw;
+					margin: 0 auto;
+				}
+
+				&:before{
+					content: '';
+					position: absolute;
+					top: 8px;
+					left: 8px;
+					height: ~'calc(100% - 16px)';
+					width: ~'calc(100% - 16px)';
+					border: 1px dotted white;
+					z-index: 2;
+					transition: all .4s ease;
+
+					@media @full_min{
+						height: 100%;
+						width: 100%;
+						top: 0; 
+						left: 0;
+					}
+				}
+
+				&:after{
+					content: '';
+					position: absolute;
+					top: 0; 
+					left: 0;
+					height: 100%;
+					width: 100%;
+					border: 16px solid black;
+					z-index: 1;
+				}
+
+				#code_interior{
+					.fillblock;
+					padding: 24px 16px 24px 24px;
+					overflow: scroll;
+					transition: all .4s ease;
+
+					overflow-wrap: break-word;
+					word-wrap: break-word;
+					-ms-word-break: break-all;
+					word-break: break-all;
+					word-break: break-word;
+					-ms-hyphens: auto;
+					-moz-hyphens: auto;
+					-webkit-hyphens: auto;
+					hyphens: auto;
+				}
+
+
+				.newLine{
+					display: block;
+					margin: 20px 0;
+				}
+			}
+
+			.loader_icon{
+				top: 50%;
+				left: 50%;
+				margin: -24px 0 0 -24px;
+				position: absolute;
+				width: 48px;
+				height: 48px;
+				background-color: black;
+
+				.nav_icon();
+
+				.animator(4, loader_icon_interior);
+
+				& > div{
+					.fillblock;
+					.nav_icon();
+				}
+			}
+		}
+	}
+
+	.sk-folding-cube .sk-cube:before{
+		background-color: white;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

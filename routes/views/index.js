@@ -16,7 +16,7 @@ exports = module.exports = function (req, res) {
 		categories: [],
 	};
 
-		console.log('YEAH0000')
+		console.log('YEAH0000');
 
 	view.on('init', function (next) {
 
@@ -31,9 +31,11 @@ exports = module.exports = function (req, res) {
 				return parseFloat(b.date) - parseFloat(a.date);
 			});
 
+			console.log(locals.data.raw_projects[0])
+
 			locals.data.pages = locals.data.raw_projects;
 
-			console.log(locals.data.pages)
+			// console.log(locals.data.pages)
 
 			projectSorter(results);			
 		});
@@ -42,7 +44,7 @@ exports = module.exports = function (req, res) {
 			keystone.list('ProjectCategory').model.find().sort('category').exec(function (err, results) {
 				locals.data.categories = results;
 
-				for (var j = 0; j < raw_projects.length; j++){
+				for (var j = 0; j < locals.data.raw_projects.length; j++){
 
 					// console.log(raw_projects[j].mainEvent_vimeo_url)
 
@@ -58,9 +60,14 @@ exports = module.exports = function (req, res) {
 							};
 						}
 
+						console.log(j, locals.data.raw_projects[j].category)
+
 						if (
-							raw_projects[j].category[0].toString() === 
-							locals.data.categories[i]._id.toString()
+							(locals.data.raw_projects[j].category[0] !== 'undefined') && 
+							(
+								locals.data.raw_projects[j].category[0].toString() === 
+								locals.data.categories[i]._id.toString()
+							)
 						){
 
 							locals.data.projects[locals.data.categories[i]._id.toString()].projects.push(
