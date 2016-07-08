@@ -1,3 +1,141 @@
 .extract_hello{
-	
+	position: relative;
+	height: ~'calc(100vh - 48px)';
+	margin-top: 48px;
+	background-color: black;
+	max-width: 100%;
+	float: right;
+	width: 100%;
+
+	@media @full_min {
+		margin-top: 0;
+		height: 100vh;
+	}
+
+	.present &{
+		transition: all .4s ease;
+	}
+
+	.navigation_open &{
+		max-width: ~'calc(100% - @{navigation_width})';
+	}
+
+	.hello{
+		width: 100%;
+		height: 100%;
+		max-width: 512px;
+		margin: 0 auto;
+		position: relative;
+
+		#hello_output{
+			position: absolute;
+			top: 48px;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+			overflow: hidden;
+
+			@media @full_min {
+				top: 0;
+			}
+
+			&:before{
+				content: '';
+				display: block;
+				padding-bottom: 106.25%;
+			}
+
+			& > div{
+				.fillblock;
+				display: none;
+				img{
+					width: 100%;
+					position: absolute;
+					left: 0;
+				}
+			}
+
+			&[viewing="nihad"] .nihad,
+			&[viewing="mike"] .mike{
+				display: block;
+				img{ animation: full_flex .75s forwards step-start; }
+			}
+		}
+
+		#hello_terminal{
+			position: absolute;
+			bottom: 68px;
+			height: 94px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			width: 100%;
+			font-family: @code;
+			color: white;
+			line-height: 16px;
+
+			p{
+				margin-bottom: 0;
+			}
+		}
+
+		#hello_input{
+			position: absolute;
+			bottom: 0;
+			height: 48px;
+			line-height: 48px;
+			border-style: solid none none;
+			border-width: 1px 0 0;
+			border-color: white transparent transparent;
+			background-color: transparent;
+			color: white;
+			left: 0;
+			width: 100%;
+			display: block;
+			font-family: @code;
+
+			&:focus{
+				outline: none;
+			}
+		}
+
+		#hello_input:focus + .hello_cursor{
+			display: none;
+		}
+
+		.hello_cursor{
+			height: 14px;
+			width: 1px;
+			background-color: white;
+			position: absolute;
+			bottom: 16px;
+			left: 1px;
+			opacity: 1;
+			animation: blinker 1s infinite step-start;
+		}
+	}
+	// 512 x 544
+}
+
+@keyframes full_flex {
+	6.25%{ top:  -0  * 100%;}
+	12.50%{ top: -1  * 100%;}
+	18.75%{ top: -2  * 100%;}
+	25.00%{ top: -3  * 100%;}
+	31.25%{ top: -4  * 100%;}
+	37.50%{ top: -5  * 100%;}
+	43.75%{ top: -6  * 100%;}
+	50.00%{ top: -7  * 100%;}
+	56.25%{ top: -8  * 100%;}
+	62.50%{ top: -9  * 100%;}
+	68.75%{ top: -10 * 100%;}
+	75.00%{ top: -11 * 100%;}
+	81.25%{ top: -12 * 100%;}
+	87.50%{ top: -13 * 100%;}
+	93.75%{ top: -14 * 100%;}
+	100.0%{ top: -15 * 100%;}
+}
+
+@keyframes blinker {
+	50% { opacity: 1; }
+	100% { opacity: 0; }
 }

@@ -16,11 +16,11 @@ exports = module.exports = function (req, res) {
 		categories: [],
 	};
 
-		console.log('YEAH0000');
+		// console.log('YEAH0000');
 
 	view.on('init', function (next) {
 
-		console.log('YEAH00');
+		// console.log('YEAH00');
 
 		// var $PROJECTMODEL = ;
 
@@ -31,7 +31,7 @@ exports = module.exports = function (req, res) {
 				return parseFloat(b.date) - parseFloat(a.date);
 			});
 
-			console.log(locals.data.raw_projects[0])
+			// console.log(locals.data.raw_projects[0])
 
 			locals.data.pages = locals.data.raw_projects;
 
@@ -60,7 +60,7 @@ exports = module.exports = function (req, res) {
 							};
 						}
 
-						console.log(j, locals.data.raw_projects[j].category)
+						// console.log(j, locals.data.raw_projects[j].category)
 
 						if (
 							(locals.data.raw_projects[j].category[0] !== 'undefined') && 

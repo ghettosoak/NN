@@ -11,11 +11,13 @@ $(function($){
 		console.log(er)
 
 		if (er === '' || er === ' '){
-			$body.removeClass('landed');
+			$body.removeClass('landed')
+				// .attr('viewing-category', '');
 
 			setTimeout(function(){
 				$lander_target.empty();
-				$body.addClass('home');
+				$body.addClass('home')
+					.removeClass('hello');
 			}, 600);
 		}else{
 			window.loading_message('project loader init', 'SHAPESHIFTER', true, true);
@@ -25,7 +27,11 @@ $(function($){
 				.addClass('loading')
 				.removeClass('home landed');
 
-			$lander_target.empty();
+			setTimeout(function(){
+				$body.removeClass('hello');
+				$lander_target.empty();
+			}, 600);
+
 
 			_start = new Date();
 
@@ -42,6 +48,9 @@ $(function($){
 				url: _url,
 			}).done(function(html){
 				postshift(er, html);
+			}).error(function(err){
+				$body.removeClass('landed')
+					.addClass('home');
 			});
 		}
 	},

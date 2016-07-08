@@ -58,24 +58,30 @@ $(function($){
 	window.contentLoader = function($target, callback){
 
 		console.log($target)
-		$target.each(function(e){
-			console.log(e)
-			var $that = $(this),
-				src;
+		if ($target.length){
+			$target.each(function(e){
+				console.log(e)
+				var $that = $(this),
+					src;
 
-				console.log($that)
+					console.log($that)
 
-			if (
-				$$_.mediaQuery.is('mobile') &&
-				$that.attr('src-mobile')
-			){
-				src = $that.attr('src-mobile');
-			}else{
-				src = $that.attr('src-desktop');
-			}			
+				if (
+					$$_.mediaQuery.is('mobile') &&
+					$that.attr('src-mobile')
+				){
+					src = $that.attr('src-mobile');
+				}else{
+					src = $that.attr('src-desktop');
+				}			
 
-			contentLoader_mechanism($that, src, callback);
-		});	
+				contentLoader_mechanism($that, src, callback);
+			});	
+		}else{
+			window.loading_message('no images found, unveiling', 'contentloader');
+			$body.addClass('landed');
+			$body.removeClass('loading home');
+		}
 	}
 
 

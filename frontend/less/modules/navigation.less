@@ -6,7 +6,8 @@
 	width: 100%;
 	height: @touchable;
 	max-width: 100%;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	background-color: transparent;
 
 	.present &{
@@ -21,6 +22,13 @@
 			max-width: @navigation_width;
 		}
 	}
+
+	// .hello &{
+	// 	background-color: black !important;
+	// 	@media @full_min {
+	// 		background-color: black !important;
+	// 	}
+	// }
 
 	@media @full_min {
 		background-color: transparent !important;
@@ -81,6 +89,10 @@
 			content: '';
 			.fillblock();
 			background-color: transparent;
+			transform: rotate(-90deg);
+			.navigation_open &{
+				transform: rotate(0)
+			}
 		}
 
 		[viewing-category="0"] &:after{
